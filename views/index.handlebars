@@ -1,3 +1,26 @@
- <h2 class="page-header">Dashboard</h2>
+<h2 class="page-header">Dashboard</h2>
 <p>Welcome to your dashboard</p>
 <a class="btn btn-default" href="/material/donate">Donate Book</a>
+<a class="btn btn-default" href="/material/availableMaterial">Issue Book</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Publication Type</th>
+      <th>Issue?</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each materials}}
+      <tr>
+        <th scope="row">{{@index}}</th>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{publicationType}}</td>  
+        <td><a href="/users/return/{{_id}}" class = "btn btn-primary">Return copy</a></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

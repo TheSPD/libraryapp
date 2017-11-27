@@ -4,6 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
+var Material = require('../models/material');
 
 // Register
 router.get('/register', function(req, res){
@@ -98,5 +99,15 @@ router.get('/logout', function(req, res){
 
 	res.redirect('/users/login');
 });
+
+router.get('/return/:id', function(req, res){
+	let user = req.user
+	let materialId = req.params.id
+
+	User.removeMaterial(user, materialId)
+	Material.removeUser(materialId, user._id)
+
+	res.redirect('/')
+})
 
 module.exports = router;

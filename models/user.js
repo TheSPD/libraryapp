@@ -15,7 +15,8 @@ var UserSchema = mongoose.Schema({
 	},
 	name: {
 		type: String
-	}
+	},
+	issuedMaterial: [ {type : mongoose.Schema.ObjectId, ref : 'Material'} ]
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);
@@ -43,4 +44,9 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     	if(err) throw err;
     	callback(null, isMatch);
 	});
+}
+
+module.exports.removeMaterial = function(user, materialId, callback){
+	user.issuedMaterial.splice(user.issuedMaterial.indexOf(materialId), 1)
+	user.save(callback)
 }

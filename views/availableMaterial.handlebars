@@ -1,0 +1,40 @@
+<h2 class="page-header">Materials</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+
+<form method="post" action="/material/availableMaterial">
+   <div class="form-group">
+    <label>Search by name</label>
+    <input type="text" class="form-control" placeholder="Name" name="name">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Publication Type</th>
+      <th>Total</th>
+      <th>Issued</th>
+      <th>Issue?</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each materials}}
+      <tr>
+        <th scope="row">{{@index}}</th>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{publicationType}}</td>
+        <td>{{numCopies}}</td>
+        <td>{{issuedUser.length}}</td>
+        <td><a href="/material/issue/{{_id}}" class = "btn btn-primary">Issue a copy</a></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
