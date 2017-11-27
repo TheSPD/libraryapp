@@ -1,26 +1,36 @@
 <h2 class="page-header">Dashboard</h2>
 <p>Welcome to your dashboard</p>
-<a class="btn btn-default" href="/material/donate">Donate Book</a>
-<a class="btn btn-default" href="/material/availableMaterial">Issue Book</a>
-<table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Author</th>
-      <th>Publication Type</th>
-      <th>Issue?</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each materials}}
-      <tr>
-        <th scope="row">{{@index}}</th>
-        <td>{{name}}</td>
-        <td>{{author}}</td>
-        <td>{{publicationType}}</td>  
-        <td><a href="/users/return/{{_id}}" class = "btn btn-primary">Return copy</a></td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="col-md-2"></div>
+<a class="btn btn-primary col-md-2" href="/material/donate">Donate Book</a>
+<div class="col-md-4"></div>
+<a class="btn btn-primary col-md-2" href="/material/availableMaterial">Issue Book</a>
+<div class="col-md-2"></div>
+
+<div class="mt-2 col-md-12">  
+</div>
+
+<div class="mt-2 col-md-12">  
+	<h3 class="page-header"> Issued Books </h3>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>#</th>
+	      <th>Name</th>
+	      <th>Author</th>
+	      <th>Publication Type</th>
+	      <th>Issue?</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    {{#each materials}}
+	      <tr>
+	        <th scope="row">{{@index}}</th>
+	        <td>{{name}}</td>
+	        <td>{{author}}</td>
+	        <td>{{publicationType}}</td>  
+	        <td><a href="/users/return/{{_id}}" class = "btn btn-primary">Return copy</a></td>
+	      </tr>
+	    {{/each}}
+	  </tbody>
+	</table>
+</div>
